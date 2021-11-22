@@ -14,7 +14,9 @@ class VentaController extends Controller
      */
     public function index()
     {
-        //
+        $ventas = Venta::orderBy('nombreDelProducto', 'asc')->get();
+
+        return view('ventas.index', compact('ventas'));
     }
 
     /**
@@ -25,6 +27,7 @@ class VentaController extends Controller
     public function create()
     {
         //
+        return view('ventas.insert');
     }
 
     /**

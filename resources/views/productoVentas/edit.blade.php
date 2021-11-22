@@ -16,16 +16,18 @@
         <input type="text" class="form-control" name="nombre" id="nombre" value="{{ $producto->nombre }}">
     </div>
     <div class="mb-3">
-        <label for="descripcion" class="form-label">Descripcion</label>
-        <input type="text" class="form-control" name="descripcion" id="descripcion" value="{{ $producto->descripcion }}">
-    </div>
-    <div class="mb-3">
-        <label for="precio" class="form-label">Precio</label>
-        <input type="number" class="form-control" name="precio" id="precio" value="{{ $producto->precio }}">
-    </div>
-    <div class="mb-3">
-        <label for="cantidad" class="form-label">Cantidad</label>
-        <input type="number" class="form-control" name="cantidad" id="cantidad" value="{{ $producto->cantidad }}">
+        <label for="productoId" class="form-label">Producto</label>
+        <select name="productoId" id="productoId" class="form-control">
+            @foreach ($productos as $producto)
+                <option value="{{ $producto->id }}"
+                    @if ($desarrollador->productoId == $prodcuto->id)
+                        selected
+                    @endif
+                    >
+                    {{ $producto->precio  }}
+                </option>
+            @endforeach
+        </select>
     </div>
     <button type="submit" class="btn btn-primary">Guardar</button>
 </form>

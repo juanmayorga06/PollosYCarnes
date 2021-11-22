@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEmpleadosTable extends Migration
+class CreateProductoVentasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateEmpleadosTable extends Migration
      */
     public function up()
     {
-        Schema::create('empleados', function (Blueprint $table) {
+        Schema::create('producto_ventas', function (Blueprint $table) {
             $table->id();
-            $table->integer('cedula');
-            $table->string('nombre');
-            $table->string('direccion');
-            $table->integer('telefono');
+            $table->foreignId('codigo')->constrained('productos');
             $table->timestamps();
         });
     }
@@ -30,6 +27,10 @@ class CreateEmpleadosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('empleados');
+        Schema::table('producto_ventas', function(Blueprint $table){
+            $table->dropForeign('producto_ventas_codigo_foreign');
+            $table->double('total');
+        });
+        Schema::dropIfExists('producto_ventas');
     }
 }

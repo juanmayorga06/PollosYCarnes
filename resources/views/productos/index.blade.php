@@ -13,12 +13,14 @@
     </div>
 @endif
     <a href="{{ route('productos.create') }}" class="btn btn-primary my-3 float-end">Crear Producto</a>
-    <table class="table table-hover">
+    <table class="table table-striped table-hover">
+    <caption>List of users</caption>
         <thead>
             <tr>
                 <th>Codigo</th>
                 <th>Nombre</th>
                 <th>Descripcion</th>
+                <th>Tipo</th>
                 <th>Precio</th>
                 <th>Cantidad</th>
                 <th>Acciones</th>
@@ -30,6 +32,7 @@
                 <td>{{ $producto->codigo}}</td>
                 <td>{{ $producto->nombre}}</td>
                 <td>{{ $producto->descripcion}}</td>
+                <td>{{ $producto->tipo}}</td>
                 <td>{{ $producto->precio}}</td>
                 <td>{{ $producto->cantidad}}</td>
                 <td>

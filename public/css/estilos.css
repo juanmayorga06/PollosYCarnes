@@ -1,0 +1,67 @@
+.footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.ventas {
+    width: 2rem;
+}
+
+.titulo-principal{
+    text-align: center;
+    font-size: 3rem;
+    color: rgb(144, 144, 144);
+    margin-bottom: auto;
+}
+
+.img-text {
+    position: absolute; /*Posicion fija*/
+    top: 1rem; /*de arriba hacia abajo*/
+    left: 5%;
+    color: #fff;
+    font-size: 2rem; /*tamaño*/
+}
+
+.polaroid img:hover { /*cuando el cursor esta ensima del objeto*/
+    /* opacity: 1; */
+    filter: blur(0); /*Desofocar*/
+    /*filter: brightness(1);*/ /*se pone oscura la imagen*/
+    /* filter: contrast(1); */
+    /*filter:grayscale(0.2);*/ /*Se pone blanco y negro*/
+    /* filter: hue-rotate(0); */
+    /* filter: invert(1); */
+    /* filter: saturate(1); */
+    /* filter: sepia(0); filtro como foto vieja */
+}
+
+.polaroid img {
+    /* opacity: 0.4;*/
+    filter: blur(2px);
+    /* filter: brightness(0.2); */
+    /* filter: contrast(1.5); */
+    /* filter:grayscale(1); */
+    /*filter: hue-rotate(180deg);*/ /*deg=grados*/
+    /* filter: invert(.2); */
+    /* filter: saturate(.2); */
+    /* filter: sepia(1); */
+}
+
+.texto{
+    text-align: center;
+}
+
+.polaroid{
+    background-color: white;
+    width: 101px;
+    height: 131px;
+    padding: 0.5rem;
+    margin: auto;
+    margin-bottom: 1rem;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); /*sombras*/
+    position: relative;
+}
+
+.ancho{
+    width: 85px;
+}

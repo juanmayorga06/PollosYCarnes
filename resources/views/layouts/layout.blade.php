@@ -32,8 +32,24 @@
                          Ventas
                         </a>
                      <ul class="dropdown-menu" aria-labelledby="dropVentas">
-                        <li><a class="dropdown-item" href="">Listar</a></li>
-                        <li><a class="dropdown-item" href="">Crear nuevo</a></li>
+                        <li><a class="dropdown-item" href="{{ route('ventas.index') }}">Listar</a></li>
+                        <li><a class="dropdown-item" href="{{  route('ventas.create') }}">Crear nuevo</a></li>
+                    </ul>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropVentas" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                         Empleado
+                        </a>
+                     <ul class="dropdown-menu" aria-labelledby="dropVentas">
+                        <li><a class="dropdown-item" href="{{ route('empleado.index') }}">Listar</a></li>
+                        <li><a class="dropdown-item" href="{{ route('empleado.create') }}">Crear nuevo</a></li>
+                    </ul>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropVentas" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                         Cliente
+                        </a>
+                     <ul class="dropdown-menu" aria-labelledby="dropVentas">
+                        <li><a class="dropdown-item" href="{{ route('clientes.index') }}">Listar</a></li>
+                        <li><a class="dropdown-item" href="{{ route('clientes.create') }}">Crear nuevo</a></li>
                     </ul>
                 </ul>
                 <form class="d-flex">

@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Proveedor;
+use App\Models\Cliente;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class ProveedorPolicy
+class ClientePolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class ProveedorPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Proveedor  $proveedor
+     * @param  \App\Models\Cliente  $cliente
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Proveedor $proveedor)
+    public function view(User $user, Cliente $cliente)
     {
         //
     }
@@ -48,10 +48,10 @@ class ProveedorPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Proveedor  $proveedor
+     * @param  \App\Models\Cliente  $cliente
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Proveedor $proveedor)
+    public function update(User $user, Cliente $cliente)
     {
         //
     }
@@ -60,10 +60,10 @@ class ProveedorPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Proveedor  $proveedor
+     * @param  \App\Models\Cliente  $cliente
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Proveedor $proveedor)
+    public function delete(User $user, Cliente $cliente)
     {
         //
     }
@@ -72,10 +72,10 @@ class ProveedorPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Proveedor  $proveedor
+     * @param  \App\Models\Cliente  $cliente
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Proveedor $proveedor)
+    public function restore(User $user, Cliente $cliente)
     {
         //
     }
@@ -84,10 +84,10 @@ class ProveedorPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Proveedor  $proveedor
+     * @param  \App\Models\Cliente  $cliente
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Proveedor $proveedor)
+    public function forceDelete(User $user, Cliente $cliente)
     {
         //
     }

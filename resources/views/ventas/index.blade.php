@@ -1,6 +1,6 @@
 <!-- //importar layout -->
 @extends('layouts.layout')
-<!-- donde haya algo llamado titulo se llamará productos -->
+<!-- donde haya algo llamado titulo se llamará ventas -->
 @section('titulo', 'Ventas')
 <!-- //Aquí llama a yeald y pone todo el codigo ahí -->
 @section('content')
@@ -12,30 +12,32 @@
 
     </div>
 @endif
-    <a href="{{ route('productos.create') }}" class="btn btn-primary my-3 float-end">Crear factura</a>
+    <a href="{{ route('ventas.create') }}" class="btn btn-primary my-3 float-end">Crear venta</a>
     <table class="table table-hover">
         <thead>
             <tr>
-                <th>Fecha</th>
+                <th>fecha</th>
                 <th>Nombre</th>
                 <th>Tipo</th>
                 <th>Precio</th>
-                <th>Cantidad</th>
+                <th>total</th>
+                <th>totalIva</th>
                 <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($productos as $producto)
+            @foreach($ventas as $venta)
             <tr>
-                <td>{{ $producto->codigo}}</td>
-                <td>{{ $producto->nombre}}</td>
-                <td>{{ $producto->descripcion}}</td>
-                <td>{{ $producto->precio}}</td>
-                <td>{{ $producto->cantidad}}</td>
+                <td>{{ $venta->fecha}}</td>
+                <td>{{ $venta->nombreDelProducto}}</td>
+                <td>{{ $venta->tipo}}</td>
+                <td>{{ $venta->precio}}</td>
+                <td>{{ $venta->total}}</td>
+                <td>{{ $venta->totalIva}}</td>
                 <td>
-                    <a href="{{ route('productos.show', $producto->id) }}" class="btn btn-info">Detalles</a>
-                    <a href="{{ route('productos.edit', $producto->id) }}" class="btn btn-warning">Editar</a>
-                    <form action="{{ route('productos.destroy', $producto->id) }}" method="post" class="d-inline-flex">
+                    <a href="" class="btn btn-info">Detalles</a>
+                    <a href="" class="btn btn-warning">Editar</a>
+                    <form action="" method="post" class="d-inline-flex">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger"

@@ -52,7 +52,7 @@ class ProductosController extends Controller
         Productos::create($request->all());
 
         //Redirigir el index
-        return redirect()->route('productos.index')->with('exito', 'Se ha guardado el proyecto exitosamente.');
+        return redirect()->route('productos.index')->with('exito', 'Se ha guardado el producto exitosamente.');
 
 
     }
@@ -110,7 +110,7 @@ class ProductosController extends Controller
         $producto->update($request->all());
 
         //Redirigir el index
-        return redirect()->route('productos.index')->with('exito', 'Se ha guardado el proyecto exitosamente.');
+        return redirect()->route('productos.index')->with('exito', 'Se ha guardado el producto exitosamente.');
     }
 
     /**

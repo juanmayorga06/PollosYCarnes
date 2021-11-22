@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Clientes;
+use App\Models\ProductoVenta;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class ClientesPolicy
+class ProductoVentaPolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class ClientesPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Clientes  $clientes
+     * @param  \App\Models\ProductoVenta  $productoVenta
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Clientes $clientes)
+    public function view(User $user, ProductoVenta $productoVenta)
     {
         //
     }
@@ -48,10 +48,10 @@ class ClientesPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Clientes  $clientes
+     * @param  \App\Models\ProductoVenta  $productoVenta
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Clientes $clientes)
+    public function update(User $user, ProductoVenta $productoVenta)
     {
         //
     }
@@ -60,10 +60,10 @@ class ClientesPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Clientes  $clientes
+     * @param  \App\Models\ProductoVenta  $productoVenta
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Clientes $clientes)
+    public function delete(User $user, ProductoVenta $productoVenta)
     {
         //
     }
@@ -72,10 +72,10 @@ class ClientesPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Clientes  $clientes
+     * @param  \App\Models\ProductoVenta  $productoVenta
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Clientes $clientes)
+    public function restore(User $user, ProductoVenta $productoVenta)
     {
         //
     }
@@ -84,10 +84,10 @@ class ClientesPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Clientes  $clientes
+     * @param  \App\Models\ProductoVenta  $productoVenta
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Clientes $clientes)
+    public function forceDelete(User $user, ProductoVenta $productoVenta)
     {
         //
     }

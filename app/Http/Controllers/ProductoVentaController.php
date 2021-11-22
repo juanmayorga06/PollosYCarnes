@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Proveedor;
+use App\Models\ProductoVenta;
 use Illuminate\Http\Request;
 
-class ProveedorController extends Controller
+class ProductoVentaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,6 +15,8 @@ class ProveedorController extends Controller
     public function index()
     {
         //
+        $productoVentas = ProductoVenta::orderBy('codigo', 'asc')->get();
+        return view('productoVentas.index', compact('productoVentas'));
     }
 
     /**
@@ -25,6 +27,8 @@ class ProveedorController extends Controller
     public function create()
     {
         //
+        return view('productoVentas.insert');
+
     }
 
     /**
@@ -36,26 +40,38 @@ class ProveedorController extends Controller
     public function store(Request $request)
     {
         //
+        //validar los datos BD
+        $request->validate([
+            'codigo' => 'required',
+            'total' => 'required',
+
+        ]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Proveedor  $proveedor
+     * @param  \App\Models\ProductoVenta  $productoVenta
      * @return \Illuminate\Http\Response
      */
-    public function show(Proveedor $proveedor)
+    public function show($id)
     {
         //
+        $productoVenta = ProductoVenta::join('productos', 'productoVentas.productoId', '=', 'proyectos.id')
+        ->select('productoVentas.*','productos.nombre as nombreProducto')
+        ->where('prodcutoVentas.id','=',$id)
+        ->first();
+        //echo $desarrollador;
+return view('productoVentas.view', compact('productoventa'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Proveedor  $proveedor
+     * @param  \App\Models\ProductoVenta  $productoVenta
      * @return \Illuminate\Http\Response
      */
-    public function edit(Proveedor $proveedor)
+    public function edit(ProductoVenta $productoVenta)
     {
         //
     }
@@ -64,10 +80,10 @@ class ProveedorController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Proveedor  $proveedor
+     * @param  \App\Models\ProductoVenta  $productoVenta
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Proveedor $proveedor)
+    public function update(Request $request, ProductoVenta $productoVenta)
     {
         //
     }
@@ -75,10 +91,10 @@ class ProveedorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Proveedor  $proveedor
+     * @param  \App\Models\ProductoVenta  $productoVenta
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Proveedor $proveedor)
+    public function destroy(ProductoVenta $productoVenta)
     {
         //
     }

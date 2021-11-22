@@ -30,6 +30,10 @@
         <input type="text" class="form-control" name="descripcion" id="descripcion" placeholder="descripcion del producto" value="{{ old('descripcion') }}">
     </div>
     <div class="mb-3">
+        <label for="tipo" class="form-label">Tipo</label>
+        <input type="text" class="form-control" name="tipo" id="tipo" placeholder="tipo de producto" value="{{ old('tipo') }}">
+    </div>
+    <div class="mb-3">
         <label for="precio" class="form-label">Precio</label>
         <input type="number" class="form-control" name="precio" id="precio" placeholder="000" value="{{ old('precio') }}">
     </div>

@@ -20,7 +20,7 @@ class CreateVentasTable extends Migration
             $table->string('tipo');
             $table->double('precio');
             $table->integer('cantidad');
-            $table->double('total');
+            $table->string('total');
             $table->double('totalIva');
             $table->timestamps();
         });
@@ -33,6 +33,7 @@ class CreateVentasTable extends Migration
      */
     public function down()
     {
+        
         Schema::dropIfExists('ventas');
     }
 }

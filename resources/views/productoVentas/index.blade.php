@@ -1,10 +1,10 @@
 <!-- //importar layout -->
 @extends('layouts.layout')
-<!-- donde haya algo llamado titulo se llamará proveedores -->
-@section('titulo', 'Proveedores')
+<!-- donde haya algo llamado titulo se llamará productos -->
+@section('titulo', 'Productos Ventas')
 <!-- //Aquí llama a yeald y pone todo el codigo ahí -->
 @section('content')
-    <h1 class="text-center pt-5 pb-3">Proveedores</h1>
+    <h1 class="text-center pt-5 pb-3">Productos Ventas</h1>
     @if ($mensaje = Session::get('exito'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         <p>{{ $mensaje }}</p>
@@ -12,24 +12,19 @@
 
     </div>
 @endif
-    <a href="{{ route('productos.create') }}" class="btn btn-primary my-3 float-end">Crear Proveedor</a>
+    <a href="{{ route('productoVentas.create') }}" class="btn btn-primary my-3 float-end">Crear Producto</a>
     <table class="table table-hover">
         <thead>
             <tr>
-                <th>Nombre</th>
-                <th>telefono</th>
-                <th>Email</th>
-                <th>productos</th>
-                <th>Acciones</th>
+                <th>Codigo</th>
+                <th>Total</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($proveedores as $proveedor)
+            @foreach($productoVentas as $productoVenta)
             <tr>
-                <td>{{ $producto->nombre}}</td>
-                <td>{{ $producto->telefono}}</td>
-                <td>{{ $producto->email}}</td>
-                <td>{{ $producto->productos}}</td>
+                <td>{{ $productoVenta->codigo}}</td>
+                <td>{{ $productoVenta->total}}</td>
                 <td>
                     <a href="" class="btn btn-info">Detalles</a>
                     <a href="" class="btn btn-warning">Editar</a>
