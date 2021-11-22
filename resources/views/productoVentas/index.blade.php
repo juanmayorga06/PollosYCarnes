@@ -24,15 +24,17 @@
             @foreach($productoVentas as $productoVenta)
             <tr>
                 <td>{{ $productoVenta->codigo}}</td>
-                <td>{{ $productoVenta->total}}</td>
+                <td>{{ $productoVenta->cantidad}}</td>
+                <td>{{ $productoVenta->nombre}}</td>
+                <td>{{ $productoVenta->codigo}}</td>
+                <td>{{ $productoVenta->tipo}}</td>
                 <td>
-                    <a href="" class="btn btn-info">Detalles</a>
-                    <a href="" class="btn btn-warning">Editar</a>
+                    <a href=" " class="btn btn-info">Detalles</a>
                     <form action="" method="post" class="d-inline-flex">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger"
-                            onclick="return confirm('¿Confirma la eliminación del producto {{ $producto->nombre}}?')">
+                            onclick="return confirm('¿Confirma la eliminación del producto {{ $productoVenta->nombre}}?')">
                             Eliminar
                         </button>
                     </form>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ProductoVenta;
+use App\Models\Productos;
 use Illuminate\Http\Request;
 
 class ProductoVentaController extends Controller
@@ -27,7 +28,8 @@ class ProductoVentaController extends Controller
     public function create()
     {
         //
-        return view('productoVentas.insert');
+        $productos = Productos::orderBy('nombre','asc')->get();
+        return view('productoVentas.insert',compact('productos'));
 
     }
 
@@ -44,8 +46,14 @@ class ProductoVentaController extends Controller
         $request->validate([
             'codigo' => 'required',
             'total' => 'required',
+            'productoId'=>'required',  
+            'tipo'=>'required', 
 
         ]);
+
+        ProductoVenta::create($request->all());
+
+        return redirect()->route('productoVentas.index')->with('exito', 'Se ha agreado con exito');
     }
 
     /**
@@ -57,12 +65,13 @@ class ProductoVentaController extends Controller
     public function show($id)
     {
         //
-        $productoVenta = ProductoVenta::join('productos', 'productoVentas.productoId', '=', 'proyectos.id')
-        ->select('productoVentas.*','productos.nombre as nombreProducto')
-        ->where('prodcutoVentas.id','=',$id)
-        ->first();
+        $productoVenta = ProductoVenta::join('productos', 'productoVentas.productoId', '=', 'productos.id')
+                        ->select('productoVentas.*','productos.nombre as nombreProducto',
+                        'productos.tipo as tipoProducto')
+                        ->where('productoVentas.id','=',$id)
+                        ->first();
         //echo $desarrollador;
-return view('productoVentas.view', compact('productoventa'));
+        return view('productoVentas.view', compact('productoVenta'));
     }
 
     /**
