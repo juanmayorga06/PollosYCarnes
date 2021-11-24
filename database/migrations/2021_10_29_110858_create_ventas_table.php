@@ -15,12 +15,12 @@ class CreateVentasTable extends Migration
     {
         Schema::create('ventas', function (Blueprint $table) {
             $table->id();
-            $table->date('fecha');
+            $table->integer('codigo');
             $table->string('nombreDelProducto');
             $table->string('tipo');
             $table->double('precio');
             $table->integer('cantidad');
-            $table->string('total');
+            $table->double('total');
             $table->double('totalIva');
             $table->timestamps();
         });
@@ -33,7 +33,8 @@ class CreateVentasTable extends Migration
      */
     public function down()
     {
-        
+
+
         Schema::dropIfExists('ventas');
     }
 }

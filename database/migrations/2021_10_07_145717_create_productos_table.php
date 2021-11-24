@@ -36,6 +36,7 @@ class CreateProductosTable extends Migration
         //     $table->dropForeign('producto_cantidad_foreign');
 
         // });
+
         Schema::dropIfExists('producto');
     }
 }

@@ -39,6 +39,20 @@ class VentaController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'fecha' => 'required',
+            'nombreDelProducto' => 'required',
+            'tipo' => 'required',
+            'precio' => 'required',
+            'total' => 'required',
+            'totalIva' => 'required',
+        ]);
+
+        //Almacenar el proyecto en la DB
+        Venta::create($request->all());
+
+        //Redirigir el index
+        return redirect()->route('ventas.index')->with('exito', 'Se ha guardado exitosamente.');
     }
 
     /**

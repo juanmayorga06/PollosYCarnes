@@ -11,8 +11,14 @@
 <body class="m-0 vh-100 row justify-content-center align-items-center">
 
     <div class="col-auto fw-light p-5">
-        <div class="titulo-principal">Pollos y Carne</div>
-        <div class="row">
+        <!-- <div class="titulo-principal">Pollos y Carne</div> -->
+        <div class="polaroidLogo">
+
+                <img src="{{ asset('images/logo.jpg') }}" alt="" class="" style="width: 1200px">
+
+
+            </div>
+        <div class="row" style="padding-top: 20px">
             <div class="polaroid">
                 <a href="{{ route('ventas.index') }}">
                 <img src="{{ asset('images/ventas.jpg') }}" alt="ventas" class="ancho">
@@ -21,7 +27,6 @@
                     VENTAS
                 </div>
                 </a>
-
             </div>
             <div class="polaroid">
                 <a href="{{ route('productos.index') }}">
@@ -42,7 +47,7 @@
                 </div>
                 </a>
             </div>
-       
+
             </div>
         </div>
     </div>

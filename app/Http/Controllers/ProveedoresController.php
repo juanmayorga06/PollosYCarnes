@@ -15,6 +15,9 @@ class ProveedoresController extends Controller
     public function index()
     {
         //
+        $proveedores = Proveedores::orderBy('nombre', 'asc')->get();
+
+        return view('proveedores.index', compact('proveedores'));
     }
 
     /**
@@ -25,6 +28,7 @@ class ProveedoresController extends Controller
     public function create()
     {
         //
+        return view('proveedores.insert');
     }
 
     /**
@@ -36,6 +40,21 @@ class ProveedoresController extends Controller
     public function store(Request $request)
     {
         //
+        //validar los datos BD
+        $request->validate([
+            'nit' => 'required',
+            'nombre' => 'required',
+            'direccion' => 'required',
+            'telefono' => 'required',
+            'email' => 'required',
+            'marca' => 'required',
+        ]);
+
+        //Almacenar el proyecto en la DB
+        Proveedores::create($request->all());
+
+        //Redirigir el index
+        return redirect()->route('proveedores.index')->with('exito', 'Se ha guardado el proveedor exitosamente.');
     }
 
     /**

@@ -16,6 +16,7 @@ class CreateProductoVentasTable extends Migration
         Schema::create('producto_ventas', function (Blueprint $table) {
             $table->id();
             $table->foreignId('codigo')->constrained('productos');
+            $table->double('total');
             $table->timestamps();
         });
     }
@@ -29,7 +30,7 @@ class CreateProductoVentasTable extends Migration
     {
         Schema::table('producto_ventas', function(Blueprint $table){
             $table->dropForeign('producto_ventas_codigo_foreign');
-            $table->double('total');
+          
         });
         Schema::dropIfExists('producto_ventas');
     }

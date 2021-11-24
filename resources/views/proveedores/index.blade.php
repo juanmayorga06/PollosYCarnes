@@ -1,10 +1,10 @@
 <!-- //importar layout -->
 @extends('layouts.layout')
 <!-- donde haya algo llamado titulo se llamará productos -->
-@section('titulo', 'Productos')
+@section('titulo', 'Proveedores')
 <!-- //Aquí llama a yeald y pone todo el codigo ahí -->
 @section('content')
-    <h1 class="text-center pt-5 pb-3">Productos</h1>
+    <h1 class="text-center pt-5 pb-3">Proveedores</h1>
     @if ($mensaje = Session::get('exito'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         <p>{{ $mensaje }}</p>
@@ -12,37 +12,37 @@
 
     </div>
 @endif
-    <a href="{{ route('productos.create') }}" class="btn btn-primary my-3 float-end">Crear Producto</a>
+    <a href="{{ route('proveedores.create') }}" class="btn btn-primary my-3 float-end">Crear Proveedor</a>
     <table class="table table-striped table-hover">
     <caption>List of users</caption>
         <thead>
             <tr>
-                <th>Codigo</th>
+                <th>NIT</th>
                 <th>Nombre</th>
-                <th>Descripcion</th>
-                <th>Tipo</th>
-                <th>Precio</th>
-                <th>Cantidad</th>
+                <th>Direccion</th>
+                <th>Telefono</th>
+                <th>email</th>
+                <th>Marca</th>
                 <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($productos as $producto)
+            @foreach($proveedores as $proveedor)
             <tr>
-                <td>{{ $producto->codigo}}</td>
-                <td>{{ $producto->nombre}}</td>
-                <td>{{ $producto->descripcion}}</td>
-                <td>{{ $producto->tipo}}</td>
-                <td>{{ $producto->precio}}</td>
-                <td>{{ $producto->cantidad}}</td>
+                <td>{{ $proveedor->nit}}</td>
+                <td>{{ $proveedor->nombre}}</td>
+                <td>{{ $proveedor->direccion}}</td>
+                <td>{{ $proveedor->telefono}}</td>
+                <td>{{ $proveedor->email}}</td>
+                <td>{{ $proveedor->marca}}</td>
                 <td>
-                    <a href="{{ route('productos.show', $producto->id) }}" class="btn btn-info">Detalles</a>
-                    <a href="{{ route('productos.edit', $producto->id) }}" class="btn btn-warning">Editar</a>
-                    <form action="{{ route('productos.destroy', $producto->id) }}" method="post" class="d-inline-flex">
+                    <a href="{{ route('proveedores.show', $proveedor->id) }}" class="btn btn-info">Detalles</a>
+                    <a href="{{ route('proveedores.edit', $proveedor->id) }}" class="btn btn-warning">Editar</a>
+                    <form action="{{ route('proveedores.destroy', $proveedor->id) }}" method="post" class="d-inline-flex">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger"
-                            onclick="return confirm('¿Confirma la eliminación del producto {{ $producto->nombre}}?')">
+                            onclick="return confirm('¿Confirma la eliminación del proveedor {{ $proveedor->nombre}}?')">
                             Eliminar
                         </button>
                     </form>

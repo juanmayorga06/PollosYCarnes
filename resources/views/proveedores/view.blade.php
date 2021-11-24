@@ -1,15 +1,15 @@
 @extends('layouts.layout')
 
-@section('titulo', 'Detalle del Producto')
+@section('titulo', 'Detalle del Proveedor')
 
 @section('content')
-    <h1 class="text-center pt-5 pb-3">Detalle del producto</h1>
+    <h1 class="text-center pt-5 pb-3">Detalle del proveedor</h1>
     <div class="row mt-3">
         <div class="col-sm-3">
-            <h3>Codigo</h3>
+            <h3>Nit</h3>
         </div>
         <div class="col-sm-3">
-            <p>{{ $producto->codigo }}</p>
+            <p>{{ $proveedor->nit }}</p>
         </div>
     </div>
     <div class="row mt-3">
@@ -17,42 +17,42 @@
             <h3>Nombre</h3>
         </div>
         <div class="col-sm-3">
-            <p>{{ $producto->nombre }}</p>
+            <p>{{ $proveedor->nombre }}</p>
         </div>
     </div>
     <div class="row mt-3">
         <div class="col-sm-3">
-            <h3>Descripcion</h3>
+            <h3>Direccion</h3>
         </div>
         <div class="col-sm-3">
-            <p>{{ $producto->descripcion }}</p>
-        </div>
-    </div>
-    <div class="row mt-3">
-        <div class="col-sm-3">
-            <h3>Tipo</h3>
-        </div>
-        <div class="col-sm-3">
-            <p>{{ $producto->tipo }}</p>
+            <p>{{ $proveedor->direccion }}</p>
         </div>
     </div>
     <div class="row mt-3">
         <div class="col-sm-3">
-            <h3>Precio</h3>
+            <h3>Telefono</h3>
         </div>
         <div class="col-sm-3">
-            <p>{{ $producto->precio }}</p>
+            <p>{{ $proveedor->telefono }}</p>
         </div>
     </div>
     <div class="row mt-3">
         <div class="col-sm-3">
-            <h3>Cantidad</h3>
+            <h3>Email</h3>
         </div>
         <div class="col-sm-3">
-            <p>{{ $producto->cantidad }}</p>
+            <p>{{ $proveedor->email }}</p>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-sm-3">
+            <h3>Marca</h3>
+        </div>
+        <div class="col-sm-3">
+            <p>{{ $proveedor->marca }}</p>
         </div>
     </div>
 
-    <a href="{{ route('productos.index') }}" class="btn btn-primary mt-3">Volver</a>
+    <a href="{{ route('proveedores.index') }}" class="btn btn-primary mt-3">Volver</a>
 
 @endsection
