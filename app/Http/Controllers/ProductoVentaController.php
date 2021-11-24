@@ -45,9 +45,9 @@ class ProductoVentaController extends Controller
         //validar los datos BD
         $request->validate([
             'codigo' => 'required',
-            'total' => 'required',
-            'productoId'=>'required',  
-            'tipo'=>'required', 
+            'productoId'=>'required',
+            'tipo'=>'required',  
+            'total' => 'required', 
 
         ]);
 

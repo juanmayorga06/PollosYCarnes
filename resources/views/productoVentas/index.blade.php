@@ -24,9 +24,6 @@
             @foreach($productoVentas as $productoVenta)
             <tr>
                 <td>{{ $productoVenta->codigo}}</td>
-                <td>{{ $productoVenta->cantidad}}</td>
-                <td>{{ $productoVenta->nombre}}</td>
-                <td>{{ $productoVenta->codigo}}</td>
                 <td>{{ $productoVenta->tipo}}</td>
                 <td>
                     <a href=" " class="btn btn-info">Detalles</a>

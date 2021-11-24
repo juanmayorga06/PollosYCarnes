@@ -15,8 +15,10 @@ class CreateProductoVentasTable extends Migration
     {
         Schema::create('producto_ventas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('codigo')->constrained('productos');
+            $table->integer('codigo');
+            $table->integer('productoId');
             $table->double('total');
+            $table->string('tipo');
             $table->timestamps();
         });
     }
@@ -28,10 +30,6 @@ class CreateProductoVentasTable extends Migration
      */
     public function down()
     {
-        Schema::table('producto_ventas', function(Blueprint $table){
-            $table->dropForeign('producto_ventas_codigo_foreign');
-          
-        });
         Schema::dropIfExists('producto_ventas');
     }
 }

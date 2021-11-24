@@ -60,8 +60,17 @@
     margin-bottom: 1rem;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); /*sombras*/
     position: relative;
+    background-color: #f8cf8c;
+
 }
 
 .ancho{
     width: 85px;
 }
+
+.navbar{
+    background: #fd9259;
+    background: -webkit-linear-gradient(to right, #fd9259, #fffbbf);
+    background: linear-gradient(to right, #fd9259, #fffbbf);
+}
+

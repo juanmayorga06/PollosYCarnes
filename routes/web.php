@@ -10,7 +10,7 @@ use App\http\Controllers\ProveedoresController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('inicio');
 
 Route::resource('productos', ProductosController::class);
 Route::resource('empleado', EmpleadoController::class);

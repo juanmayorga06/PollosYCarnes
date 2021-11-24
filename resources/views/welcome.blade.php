@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
     <title>Pollos y Carnes</title>
 </head>
-<body class="m-0 vh-100 row justify-content-center align-items-center">
+<body class="m-0 vh-100 row justify-content-center align-items-center"  >
 
     <div class="col-auto fw-light p-5">
         <!-- <div class="titulo-principal">Pollos y Carne</div> -->

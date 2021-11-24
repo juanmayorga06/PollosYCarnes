@@ -22,10 +22,6 @@
             <input type="number" class="form-control" name="codigo" id="codigo" placeholder="000" value="{{ old('codigo') }}">
         </div>
         <div class="mb-3">
-            <label for="cantidad" class="form-label">Cantidad</label>
-            <input type="number" class="form-control" name="cantidad" id="cantidad" placeholder="000" value="{{ old('cantidad') }}">
-        </div>
-        <div class="mb-3">
             <label for="productoId">Producto</label>
             <select name="productoId" id="productoId" class="form-select">
                 <option value="" selected>Seleccione...</option>
