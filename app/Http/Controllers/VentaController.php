@@ -44,6 +44,7 @@ class VentaController extends Controller
             'nombreDelProducto' => 'required',
             'tipo' => 'required',
             'precio' => 'required',
+            'cantidad' => 'required',
             'total' => 'required',
             'totalIva' => 'required',
         ]);

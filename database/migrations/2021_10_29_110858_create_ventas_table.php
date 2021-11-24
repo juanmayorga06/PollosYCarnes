@@ -15,7 +15,7 @@ class CreateVentasTable extends Migration
     {
         Schema::create('ventas', function (Blueprint $table) {
             $table->id();
-            $table->integer('codigo');
+            $table->date('fecha');
             $table->string('nombreDelProducto');
             $table->string('tipo');
             $table->double('precio');
