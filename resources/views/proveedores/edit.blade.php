@@ -4,7 +4,7 @@
 
 @section('content')
 <h1 class="text-center my-5">Editar proveedor</h1>
-<form action="{{ route('productos.update', $proveedor->id) }}" method="post">
+<form action="{{ route('proveedores.update', $proveedor->id) }}" method="post">
     @csrf
     @method('put')
     <div class="mb-3">
@@ -25,11 +25,11 @@
     </div>
     <div class="mb-3">
         <label for="email" class="form-label">Email</label>
-        <input type="number" class="form-control" name="email" id="email" value="{{ $proveedor->email }}">
+        <input type="text" class="form-control" name="email" id="email" value="{{ $proveedor->email }}">
     </div>
     <div class="mb-3">
         <label for="marca" class="form-label">Marca</label>
-        <input type="number" class="form-control" name="marca" id="marca" value="{{ $proveedor->marca }}">
+        <input type="text" class="form-control" name="marca" id="marca" value="{{ $proveedor->marca }}">
     </div>
     <button type="submit" class="btn btn-primary">Guardar</button>
 </form>

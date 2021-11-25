@@ -13,7 +13,8 @@
     </div>
 @endif
     <a href="{{ route('empleado.create') }}" class="btn btn-primary my-3 float-end">Crear Empleado</a>
-    <table class="table table-hover">
+    <table class="table table-striped table-hover">
+        <caption>List of employe</caption>
         <thead>
             <tr>
                 <th>Cedula</th>

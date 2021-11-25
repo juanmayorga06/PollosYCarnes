@@ -62,9 +62,13 @@ class VentaController extends Controller
      * @param  \App\Models\Venta  $venta
      * @return \Illuminate\Http\Response
      */
-    public function show(Venta $venta)
+    public function show($id)
     {
-        //
+        
+          //consulta
+          $venta = Venta::FindOrFail($id); //encuentra o lance un error
+          //Enviar a la vista
+          return view('ventas.view', compact('venta'));
     }
 
     /**

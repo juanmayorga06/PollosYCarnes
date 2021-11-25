@@ -13,7 +13,8 @@
     </div>
 @endif
     <a href="{{ route('ventas.create') }}" class="btn btn-primary my-3 float-end">Crear venta</a>
-    <table class="table table-hover">
+    <table class="table table-striped table-hover">
+        <caption>List of sale</caption>
         <thead>
             <tr>
                 <th>fecha</th>
@@ -35,7 +36,7 @@
                 <td>{{ $venta->total}}</td>
                 <td>{{ $venta->totalIva}}</td>
                 <td>
-                    <a href="" class="btn btn-info">Detalles</a>
+                    <a href="{{ route('ventas.show', $venta->id) }}" class="btn btn-info">Detalles</a>
                     <a href="" class="btn btn-warning">Editar</a>
                
                 </td>

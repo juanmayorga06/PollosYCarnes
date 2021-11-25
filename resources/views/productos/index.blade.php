@@ -14,7 +14,7 @@
 @endif
     <a href="{{ route('productos.create') }}" class="btn btn-primary my-3 float-end">Crear Producto</a>
     <table class="table table-striped table-hover">
-    <caption>List of users</caption>
+    <caption>List of product</caption>
         <thead>
             <tr>
                 <th>Codigo</th>

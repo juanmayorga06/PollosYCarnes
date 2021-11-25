@@ -13,7 +13,8 @@
     </div>
 @endif
     <a href="{{ route('clientes.create') }}" class="btn btn-primary my-3 float-end">Crear Producto</a>
-    <table class="table table-hover">
+    <table class="table table-striped table-hover">
+        <caption>List of client</caption>
         <thead>
             <tr>
                 <th>Cedula</th>

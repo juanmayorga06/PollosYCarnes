@@ -75,9 +75,12 @@ class ClienteController extends Controller
      * @param  \App\Models\Cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cliente $cliente)
+    public function edit($id)
     {
-        //
+        //consulta
+        $cliente =Cliente::FindOrFail($id);
+        //Enviar al edit
+        return view('clientes.edit', compact('cliente'));
     }
 
     /**
@@ -87,9 +90,25 @@ class ClienteController extends Controller
      * @param  \App\Models\Cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cliente $cliente)
+    public function update(Request $request,  $id)
     {
-        //
+        //validar los datos
+        $request->validate([
+            'cedula' => 'required',
+            'nombre' => 'required',
+            'telefono' => 'required',
+            'direccion' => 'required',
+            'email' => 'required',
+        ]);
+
+        //Buscar el proyecto
+        $cliente = Cliente::FindOrFail($id);
+
+        //Actualizacion del proyecto
+        $cliente->update($request->all());
+
+        //Redirigir el index
+        return redirect()->route('clientes.index')->with('exito', 'Se ha guardado exitosamente.');
     }
 
     /**
@@ -98,8 +117,11 @@ class ClienteController extends Controller
      * @param  \App\Models\Cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cliente $cliente)
+    public function destroy($id)
     {
-        //
+        //Eliminar un producto
+        $cliente = Cliente::findOrFail($id);
+        $cliente->delete();
+        return redirect()->route('clientes.index')->with('exito', 'Se ha eliminado el cliente exitosamente');
     }
 }
