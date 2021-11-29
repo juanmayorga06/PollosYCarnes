@@ -1,30 +1,34 @@
 @extends('layouts.layout')
 
-@section('titulo', 'Editar Producto')
+@section('titulo', 'Editar Producto Venta')
 
 @section('content')
 <h1 class="text-center my-5">Editar producto</h1>
-<form action="{{ route('productos.update', $producto->id) }}" method="post">
+<form action="{{ route('productoVentas.update', $productoVenta->id) }}" method="post">
     @csrf
     @method('put')
     <div class="mb-3">
         <label for="codigo" class="form-label">Codigo</label>
-        <input type="number" class="form-control" name="codigo" id="codigo" value="{{ $producto->codigo }}">
+        <input type="number" class="form-control" name="codigo" id="codigo" value="{{ $productoVenta->codigo }}">
+    </div>
+    <div class="mb-3">
+        <label for="cantidad" class="form-label">Cantidad</label>
+        <input type="number" class="form-control" name="cantidad" id="cantidad" value="{{ $productoVenta->codigo }}">
     </div>
     <div class="mb-3">
         <label for="nombre" class="form-label">Nombre</label>
-        <input type="text" class="form-control" name="nombre" id="nombre" value="{{ $producto->nombre }}">
+        <input type="text" class="form-control" name="nombre" id="nombre" value="{{ $productoVenta->nombre }}">
     </div>
     <div class="mb-3">
         <label for="productoId" class="form-label">Producto</label>
         <select name="productoId" id="productoId" class="form-control">
             @foreach ($productos as $producto)
-                <option value="{{ $producto->id }}"
-                    @if ($desarrollador->productoId == $prodcuto->id)
+                <option value="{{ $productoVenta->id }}"
+                    @if ($desarrollador->productoId == $productoVenta->id)
                         selected
                     @endif
                     >
-                    {{ $producto->precio  }}
+                    {{ $productoVenta->precio  }}
                 </option>
             @endforeach
         </select>

@@ -16,9 +16,10 @@ class CreateProductoVentasTable extends Migration
         Schema::create('producto_ventas', function (Blueprint $table) {
             $table->id();
             $table->integer('codigo');
-            $table->integer('productoId');
+            $table->string('productoId');
             $table->double('total');
             $table->string('tipo');
+            $table->integer('cantidad');
             $table->timestamps();
         });
     }

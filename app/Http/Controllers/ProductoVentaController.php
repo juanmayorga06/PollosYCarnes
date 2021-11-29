@@ -45,9 +45,10 @@ class ProductoVentaController extends Controller
         //validar los datos BD
         $request->validate([
             'codigo' => 'required',
-            'productoId'=>'required',
+            'productoId' => 'required',
             'tipo'=>'required',  
             'total' => 'required', 
+            'cantidad'=>'required',
 
         ]);
 
@@ -71,7 +72,11 @@ class ProductoVentaController extends Controller
                         ->where('productoVentas.id','=',$id)
                         ->first();
         //echo $desarrollador;
+
         return view('productoVentas.view', compact('productoVenta'));
+          //consulta
+          
+   
     }
 
     /**
@@ -80,9 +85,12 @@ class ProductoVentaController extends Controller
      * @param  \App\Models\ProductoVenta  $productoVenta
      * @return \Illuminate\Http\Response
      */
-    public function edit(ProductoVenta $productoVenta)
+    public function edit( $id)
     {
-        //
+        ///consulta
+        $productoVenta =ProductoVenta::FindOrFail($id);
+        //Enviar al edit
+        return view('productoVentas.edit', compact('productoVentas'));
     }
 
     /**
@@ -92,9 +100,24 @@ class ProductoVentaController extends Controller
      * @param  \App\Models\ProductoVenta  $productoVenta
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ProductoVenta $productoVenta)
+    public function update(Request $request, $id)
     {
-        //
+        //validar los datos
+        $request->validate([
+            'codigo' => 'required',
+            'productoId' => 'required',
+            'total' => 'required',
+            'tipo' => 'required',
+        ]);
+
+        //Buscar el proyecto
+        $productoVenta = ProductoVenta::FindOrFail($id);
+
+        //Actualizacion del proyecto
+        $productoVenta->update($request->all());
+
+        //Redirigir el index
+        return redirect()->route('productoVentas.index')->with('exito', 'Se ha guardado exitosamente.');
     }
 
     /**
@@ -103,8 +126,11 @@ class ProductoVentaController extends Controller
      * @param  \App\Models\ProductoVenta  $productoVenta
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ProductoVenta $productoVenta)
+    public function destroy( $id)
     {
-        //
+         //Eliminar un producto
+         $productoVenta = ProductoVenta::findOrFail($id);
+         $productoVenta->delete();
+         return redirect()->route('productoVentas.index')->with('exito', 'Se ha eliminado exitosamente');
     }
 }

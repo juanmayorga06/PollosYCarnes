@@ -31,7 +31,7 @@
     </div>
     <div class="mb-3">
         <label for="telefono" class="form-label">Telefono</label>
-        <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Telefono de proveedor" value="{{ old('telefono') }}">
+        <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Telefono de proveedor" maxlength="10" value="{{ old('telefono') }}">
     </div>
     <div class="mb-3">
         <label for="email" class="form-label">Email</label>

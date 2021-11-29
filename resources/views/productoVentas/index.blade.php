@@ -17,16 +17,22 @@
         <thead>
             <tr>
                 <th>Codigo</th>
-                <th>Total</th>
+                <th>Cantidad</th>
+                <th>productoId</th>
+                <th>Tipo</th>
+                <th>Total</th>               
             </tr>
         </thead>
         <tbody>
             @foreach($productoVentas as $productoVenta)
             <tr>
                 <td>{{ $productoVenta->codigo}}</td>
+                <td>{{ $productoVenta->cantidad}}</td>
+                <td>{{ $productoVenta->productoId}}</td>
                 <td>{{ $productoVenta->tipo}}</td>
+                <td>{{ $productoVenta->total}}</td>
                 <td>
-                    <a href=" " class="btn btn-info">Detalles</a>
+                    <a href="{{ route('productoVentas.show', $productoVenta->id) }}" class="btn btn-info">Detalles</a>
                     <form action="" method="post" class="d-inline-flex">
                         @csrf
                         @method('DELETE')
