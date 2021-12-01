@@ -13,7 +13,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand " href="{{ route('inicio') }}">
+            <a class="navbar-brand " href="{{ route('panel') }}">
                 <img src="{{ asset('images/logo.jpg') }}" alt="logo" class="logo" width="200px">
             </a>
 

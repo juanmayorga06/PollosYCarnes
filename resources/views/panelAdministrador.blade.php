@@ -18,7 +18,7 @@
                 <img src="{{ asset('images/logo.jpg') }}" alt="" class="" style="width: 1200px">
 
 
-            </div>
+        </div>
         <div class="row" style="padding-top: 20px">
             <div class="polaroid">
                 <a href="{{ route('ventas.index') }}">
@@ -49,9 +49,7 @@
                 </a>
             </div>
 
-            </div>
         </div>
-        
     </div>
     
 </body>

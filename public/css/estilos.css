@@ -89,5 +89,9 @@
 .bienvenida{
 margin-top: -100px;
 margin-left: -25px;
-margin-right: 0.001rem;
+margin-right: -25px;     
+}
+
+.color{
+    background-color:#ff845f;
 }

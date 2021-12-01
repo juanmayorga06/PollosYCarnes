@@ -10,9 +10,9 @@ use App\http\Controllers\ProveedoresController;
 use App\http\Controllers\PanelController;
 use App\http\Controllers\HomeController;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('inicio');
+Route::get('/panelAdministrador', function () {
+    return view('panelAdministrador');
+})->name('panel');
 
 Route::resource('productos', ProductosController::class);
 Route::resource('empleado', EmpleadoController::class);
@@ -29,4 +29,7 @@ Route::resource('proveedores', ProveedoresController::class);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/panel', [App\Http\Controllers\PanelController::class, 'index'])->name('panel');
+
+Route::get('/', function () {
+    return view('welcome');
+})->name('inicio');
