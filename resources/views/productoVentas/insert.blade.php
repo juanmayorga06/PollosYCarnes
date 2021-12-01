@@ -14,7 +14,7 @@
         </ul>
     </div>
 @endif
-<form action="{{ route('productoVentas.store') }}" method="post">
+<form action="{{ route('productoVentas.store') }}" method="post" style="margin-bottom: 20px">
         @csrf
         @method('post')
         <div class="mb-3">
@@ -55,17 +55,10 @@
             <label for="total" class="form-label">Total</label>
             <input type="number" class="form-control" name="total" id="total" placeholder="000" value="{{ old('cantidad') }}">
         </div>
-        <button type="submit" class="btn btn-primary">Calcular</button>   
-        
+        <button type="submit" class="btn btn-primary" style="margin-bottom: 20px">Calcular</button>   
+        <a href="" id="agregar"class="btn btn-warning" style="margin-bottom: 20px">Agregar otro producto</a> 
    
     </form>
-    <a href="" id="agregar"class="btn btn-info">Agregar otro producto</a>
-    @while (onclick)
-     
-
-        
-    @endwhile
-    <br>
 
     <script src="{{ asset('js/agregar.js') }}"></script>
     

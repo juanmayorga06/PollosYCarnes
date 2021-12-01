@@ -5,54 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('layouts/app.blade.php') }}">
     <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
     <title>Pollos y Carnes</title>
+    <svg xmlns="http://www.w3.org/2000/svg"  class="bienvenida" viewBox="0 0 1440 320"><path fill="#ff5421" fill-opacity="1" d="M0,192L6.2,165.3C12.3,139,25,85,37,80C49.2,75,62,117,74,117.3C86.2,117,98,75,111,85.3C123.1,96,135,160,148,176C160,192,172,160,185,133.3C196.9,107,209,85,222,85.3C233.8,85,246,107,258,122.7C270.8,139,283,149,295,176C307.7,203,320,245,332,261.3C344.6,277,357,267,369,234.7C381.5,203,394,149,406,133.3C418.5,117,431,139,443,165.3C455.4,192,468,224,480,240C492.3,256,505,256,517,218.7C529.2,181,542,107,554,69.3C566.2,32,578,32,591,69.3C603.1,107,615,181,628,186.7C640,192,652,128,665,128C676.9,128,689,192,702,186.7C713.8,181,726,107,738,69.3C750.8,32,763,32,775,32C787.7,32,800,32,812,53.3C824.6,75,837,117,849,160C861.5,203,874,245,886,245.3C898.5,245,911,203,923,186.7C935.4,171,948,181,960,154.7C972.3,128,985,64,997,48C1009.2,32,1022,64,1034,106.7C1046.2,149,1058,203,1071,240C1083.1,277,1095,299,1108,261.3C1120,224,1132,128,1145,85.3C1156.9,43,1169,53,1182,64C1193.8,75,1206,85,1218,85.3C1230.8,85,1243,75,1255,85.3C1267.7,96,1280,128,1292,122.7C1304.6,117,1317,75,1329,69.3C1341.5,64,1354,96,1366,101.3C1378.5,107,1391,85,1403,106.7C1415.4,128,1428,192,1434,224L1440,256L1440,0L1433.8,0C1427.7,0,1415,0,1403,0C1390.8,0,1378,0,1366,0C1353.8,0,1342,0,1329,0C1316.9,0,1305,0,1292,0C1280,0,1268,0,1255,0C1243.1,0,1231,0,1218,0C1206.2,0,1194,0,1182,0C1169.2,0,1157,0,1145,0C1132.3,0,1120,0,1108,0C1095.4,0,1083,0,1071,0C1058.5,0,1046,0,1034,0C1021.5,0,1009,0,997,0C984.6,0,972,0,960,0C947.7,0,935,0,923,0C910.8,0,898,0,886,0C873.8,0,862,0,849,0C836.9,0,825,0,812,0C800,0,788,0,775,0C763.1,0,751,0,738,0C726.2,0,714,0,702,0C689.2,0,677,0,665,0C652.3,0,640,0,628,0C615.4,0,603,0,591,0C578.5,0,566,0,554,0C541.5,0,529,0,517,0C504.6,0,492,0,480,0C467.7,0,455,0,443,0C430.8,0,418,0,406,0C393.8,0,382,0,369,0C356.9,0,345,0,332,0C320,0,308,0,295,0C283.1,0,271,0,258,0C246.2,0,234,0,222,0C209.2,0,197,0,185,0C172.3,0,160,0,148,0C135.4,0,123,0,111,0C98.5,0,86,0,74,0C61.5,0,49,0,37,0C24.6,0,12,0,6,0L0,0Z"></path></svg>
 </head>
+
 <body class="m-0 vh-100 row justify-content-center align-items-center"  >
 
-    <div class="col-auto fw-light p-5">
-        <!-- <div class="titulo-principal">Pollos y Carne</div> -->
-        <div class="polaroidLogo">
+    <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
+       
+        @if (Route::has('login'))
+            <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                @auth
+                    <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
+                @else
+                    <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
 
-                <img src="{{ asset('images/logo.jpg') }}" alt="" class="" style="width: 1200px">
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                    @endif
+                @endauth
+            </div>
+        @endif
 
-
-            </div>
-        <div class="row" style="padding-top: 20px">
-            <div class="polaroid">
-                <a href="{{ route('ventas.index') }}">
-                <img src="{{ asset('images/ventas.jpg') }}" alt="ventas" class="ancho">
-                <p class="img-text"></p>
-                <div class="texto">
-                    VENTAS
-                </div>
-                </a>
-            </div>
-            <div class="polaroid">
-                <a href="{{ route('productos.index') }}">
-                <img src="{{ asset('images/productos.jpg') }}" alt="ventas" class="ancho">
-                <p class="img-text"></p>
-                <div class="texto" style ="padding-top: 20px">
-                    PRODUCTOS
-                </div>
-                </a>
-            </div>
-
-            <div class="polaroid">
-                <a href="{{ route('productoVentas.create') }}">
-                <img src="{{ asset('images/factura.jpg') }}" alt="ventas" class="ancho">
-                <p class="img-text"></p>
-                <div class="texto" style ="padding-top: 20px">
-                    FACTURA
-                </div>
-                </a>
-            </div>
-
-            </div>
-        </div>
-    </div>
+    
 
     <script src="{{ asset('js/app.js') }}"></script>
+    
 </body>
 
 </html>

@@ -67,6 +67,7 @@
 
 }
 
+
 .ancho{
     width: 85px;
 }
@@ -84,4 +85,9 @@
     background: linear-gradient(to right, #fd9259, #fffbbf);
     margin-top: 20px;
     border-radius: 20px;
+}
+.bienvenida{
+margin-top: -100px;
+margin-left: -25px;
+margin-right: 0.001rem;
 }

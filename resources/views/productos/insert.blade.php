@@ -14,7 +14,7 @@
         </ul>
     </div>
 @endif
-<form action="{{ route('productos.store') }}" method="post">
+<form action="{{ route('productos.store') }}" method="post" style="margin-bottom: 20px">
     @csrf
     @method('post')
     <div class="mb-3">
@@ -41,6 +41,6 @@
         <label for="cantidad" class="form-label">Cantidad</label>
         <input type="number" class="form-control" name="cantidad" id="cantidad" placeholder="000" value="{{ old('cantidad') }}">
     </div>
-    <button type="submit" class="btn btn-primary">Guardar</button>
+    <button type="submit" class="btn btn-primary" style="margin-bottom: 20px">Guardar</button>
 </form>
 @endsection

@@ -7,6 +7,8 @@ use App\http\Controllers\ClienteController;
 use App\http\Controllers\VentaController;
 use App\http\Controllers\ProductoVentaController;
 use App\http\Controllers\ProveedoresController;
+use App\http\Controllers\PanelController;
+use App\http\Controllers\HomeController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,6 +21,12 @@ Route::resource('ventas', VentaController::class);
 Route::resource('productoVentas', ProductoVentaController::class);
 Route::resource('proveedores', ProveedoresController::class);
 
+
 // Route::get('/productos', function(){
 //     return view('productos.index');
 // });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/panel', [App\Http\Controllers\PanelController::class, 'index'])->name('panel');

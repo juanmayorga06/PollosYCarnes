@@ -14,7 +14,7 @@
         </ul>
     </div>
 @endif
-<form action="{{ route('empleado.store') }}" method="post">
+<form action="{{ route('empleado.store') }}" method="post" style="margin-bottom: 20px">
     @csrf
     @method('post')
     <div class="mb-3">
@@ -33,6 +33,6 @@
         <label for="direccion" class="form-label">Dirección</label>
         <input type="text" class="form-control" name="direccion" id="direccion" placeholder="Direccion del empleado" value="{{ old('direccion') }}">
     </div>
-    <button type="submit" class="btn btn-primary">Guardar</button>
+    <button type="submit" class="btn btn-primary" style="margin-bottom: 20px">Guardar</button>
 </form>
 @endsection

@@ -63,10 +63,6 @@
                         <li><a class="dropdown-item" href="{{ route('proveedores.create') }}">Crear nuevo</a></li>
                     </ul>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="buscar" name="buscar">
-                    <button class="btn btn-outline-success" type="submit">Buscar</button>
-                </form>
 
             </div>
         </div>
@@ -76,6 +72,8 @@
     <div class="container ">
         @yield('content')
     </div>
+
+    
 
     <script src="{{ asset('js/app.js') }}"></script>
 

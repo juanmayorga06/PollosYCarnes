@@ -14,7 +14,7 @@
         </ul>
     </div>
 @endif
-<form action="{{ route('ventas.store') }}" method="post">
+<form action="{{ route('ventas.store') }}" method="post" style="margin-bottom: 20px">
     @csrf
     @method('post')
     <div class="mb-3">
@@ -45,6 +45,6 @@
         <label for="totalIva" class="form-label">Total con Iva</label>
         <input type="number" class="form-control" name="totalIva" id="totalIva" placeholder="$000" value="{{ old('totalIva') }}">
     </div>
-    <button type="submit" class="btn btn-primary">Guardar</button>
+    <button type="submit" class="btn btn-primary" style="margin-bottom: 20px">Guardar</button>
 </form>
 @endsection
