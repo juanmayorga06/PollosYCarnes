@@ -22,3 +22,15 @@ Route::resource('proveedores', ProveedoresController::class);
 // Route::get('/productos', function(){
 //     return view('productos.index');
 // });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
