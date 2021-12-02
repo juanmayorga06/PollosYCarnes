@@ -7,17 +7,14 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('layouts/app.blade.php') }}">
     <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
-    <title>Document</title>
+    <title>Pollos y carnes</title>
 </head>
-<body>
+<body id="admin" class="m-0 vh-100 row justify-content-center align-items-center admin"  >
     
     <div class="col-auto fw-light p-5" id="hola">
         <!-- <div class="titulo-principal">Pollos y Carne</div> -->
         <div class="polaroidLogo">
-
                 <img src="{{ asset('images/logo.jpg') }}" alt="" class="" style="width: 1200px">
-
-
         </div>
         <div class="row" style="padding-top: 20px">
             <div class="polaroid">
