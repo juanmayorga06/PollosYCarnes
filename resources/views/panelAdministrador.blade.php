@@ -10,6 +10,7 @@
     <title>Pollos y carnes</title>
 </head>
 <body id="admin" class="m-0 vh-100 row justify-content-center align-items-center admin"  >
+ 
     
     <div class="col-auto fw-light p-5" id="hola">
         <!-- <div class="titulo-principal">Pollos y Carne</div> -->
@@ -22,7 +23,7 @@
                 <img src="{{ asset('images/ventas.jpg') }}" alt="ventas" class="ancho">
                 <p class="img-text"></p>
                 <div class="texto">
-                    VENTAS
+                    VENTAS  
                 </div>
                 </a>
             </div>

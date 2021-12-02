@@ -12,7 +12,7 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
+        <div class="container" style="margin-top: 5px">
             <a class="navbar-brand " href="{{ route('panel') }}">
                 <img src="{{ asset('images/logo.jpg') }}" alt="logo" class="logo" width="200px">
             </a>
@@ -27,7 +27,7 @@
                             Productos
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropProductos">
-                            <li><a class="dropdown-item" href="{{ route('productos.index') }}">Lista</a></li>
+                            <li><a class="dropdown-item" href="{{ route('productos.index') }}">Listar</a></li>
                             <li><a class="dropdown-item" href="{{ route('productos.create') }}">Crear nuevo</a></li>
                         </ul>
                     <li class="nav-item dropdown">
@@ -36,7 +36,6 @@
                         </a>
                      <ul class="dropdown-menu" aria-labelledby="dropVentas">
                         <li><a class="dropdown-item" href="{{ route('ventas.index') }}">Listar</a></li>
-                        <li><a class="dropdown-item" href="{{  route('ventas.create') }}">Crear nuevo</a></li>
                     </ul>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropVentas" role="button" data-bs-toggle="dropdown" aria-expanded="false">

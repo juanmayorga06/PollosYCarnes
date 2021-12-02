@@ -99,8 +99,17 @@ margin-right: -25px;
 }
 
 .welcome{
-    background: #D99F7E;
-    background: -webkit-linear-gradient(to right, #D99F7E, #fffbbf);
-    background: linear-gradient(to right, #D99F7E, #fffbbf);
+    background: #fd9259;
+    background: -webkit-linear-gradient(to right, #fd9259, #fffbbf);
+    background: linear-gradient(to right, #fd9259, #fffbbf);
 
+}
+
+.nose{
+    background: #fd9259;
+ 
+}
+
+.logoPrincipal{
+    margin-left: 65px;
 }

@@ -60,6 +60,12 @@
   --bs-body-bg: #f8fafc;
 }
 
+.welcome{
+  background: #fd9259;
+  background: -webkit-linear-gradient(to right, #fd9259, #fffbbf);
+  background: linear-gradient(to right, #fd9259, #fffbbf);
+}
+
 *,
 *::before,
 *::after {

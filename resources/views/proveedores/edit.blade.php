@@ -21,7 +21,7 @@
     </div>
     <div class="mb-3">
         <label for="telefono" class="form-label">Telefono</label>
-        <input type="number" class="form-control" name="telefono" id="telefono" value="{{ $proveedor->telefono }}">
+        <input type="text" class="form-control" name="telefono" id="telefono" value="{{ $proveedor->telefono }}">
     </div>
     <div class="mb-3">
         <label for="email" class="form-label">Email</label>

@@ -26,7 +26,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -63,13 +63,7 @@
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-<<<<<<< HEAD
-                                    {{ __('Registrar') }}
-=======
-                                    {{ __('Register') }}
->>>>>>> 7a3351e12a6e4843c81c39d8cd5980db8e1a1b1c
-                                </button>
+                                <a href="{{ route('panel') }}" class="btn btn-info">Registrar</a>
                             </div>
                         </div>
                     </form>

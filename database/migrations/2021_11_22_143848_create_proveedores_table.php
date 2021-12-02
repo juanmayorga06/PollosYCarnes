@@ -18,7 +18,7 @@ class CreateProveedoresTable extends Migration
             $table->integer('nit');
             $table->string('nombre');
             $table->string('direccion');
-            $table->integer('telefono');
+            $table->string('telefono');
             $table->string('email');
             $table->string('marca');
             $table->timestamps();

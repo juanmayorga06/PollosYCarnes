@@ -27,19 +27,16 @@ Route::resource('proveedores', ProveedoresController::class);
 // });
 
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-<<<<<<< HEAD
+
 Route::get('/', function () {
     return view('welcome');
 })->name('inicio');
-=======
-Auth::routes();
 
+Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
->>>>>>> 7a3351e12a6e4843c81c39d8cd5980db8e1a1b1c
+

@@ -55,7 +55,7 @@
             <label for="total" class="form-label">Total</label>
             <input type="number" class="form-control" name="total" id="total" placeholder="000" value="{{ old('cantidad') }}">
         </div>
-        <button type="submit" class="btn btn-primary" style="margin-bottom: 20px">Calcular</button>   
+        <button type="submit" class="btn btn-primary" style="margin-bottom: 20px">Facturar</button>   
         <a href="" id="agregar"class="btn btn-warning" style="margin-bottom: 20px">Agregar otro producto</a> 
    
     </form>

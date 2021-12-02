@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+#root,
+body,
+html {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  background: #fd9259;
+  background: -webkit-linear-gradient(to right, #fd9259, #fffbbf);
+  background: linear-gradient(to right, #fd9259, #fffbbf);
+  font-family: "Inter", sans-serif;
+  @media (min-width: 640px) {
+    flex-flow: row;
+};
+  
+}
+#root {
+  display: flex;
+  background: #fd9259;
+  background: -webkit-linear-gradient(to right, #fd9259, #fffbbf);
+  background: linear-gradient(to right, #fd9259, #fffbbf);
+}
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+.container {
+  box-shadow: 0 3px 6px rgb(0, 0, 0, 0.16), 0 3px 6px rgb(0, 0, 0, 0.23);
+  border-radius: 10px;
+
+}

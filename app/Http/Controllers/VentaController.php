@@ -77,9 +77,12 @@ class VentaController extends Controller
      * @param  \App\Models\Venta  $venta
      * @return \Illuminate\Http\Response
      */
-    public function edit(Venta $venta)
+    public function edit( $id)
     {
         //
+        $venta=Venta::FindOrFail($id);
+
+        return view('ventas.edit',compact('venta'));
     }
 
     /**
