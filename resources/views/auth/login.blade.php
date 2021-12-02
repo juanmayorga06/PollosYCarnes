@@ -54,7 +54,11 @@
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
+<<<<<<< HEAD
                                     {{ __('Entrar') }}
+=======
+                                    {{ __('Login') }}
+>>>>>>> 7a3351e12a6e4843c81c39d8cd5980db8e1a1b1c
                                 </button>
 
                                 @if (Route::has('password.request'))
