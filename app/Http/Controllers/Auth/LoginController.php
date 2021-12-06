@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -41,7 +42,7 @@ class LoginController extends Controller
     public function redirectPath(){
         if(Auth::user()->tipo_usuario){
             
-            return '/panel';
+            return '/home';
         }
         return '/home';
     }

@@ -1,23 +1,43 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
+    <div class="col-auto fw-light p-5" id="hola" style="text-align:center">
+        <!-- <div class="titulo-principal">Pollos y Carne</div> -->
+        <div class="polaroidLogo" >
+                <img src="{{ asset('images/logo.jpg') }}" alt="" class="" style="width: 1250px">
+        </div>
+        <div class="row" style="padding-top: 20px">
+            <div class="polaroid" style="width: 124px">
+                <a href="{{ route('ventas.index') }}">
+                <img src="{{ asset('images/ventas.png') }}" alt="ventas" class="ancho">
+                <p class="img-text"></p>
+                <div class="texto">
+                    VENTAS  
                 </div>
+                </a>
             </div>
+            <div class="polaroid" style="width: 124px">
+                <a href="{{ route('productos.index') }}">
+                <img src="{{ asset('images/productos.png') }}" alt="ventas" class="ancho">
+                <p class="img-text"></p>
+                <div class="texto" >
+                    PRODUCTOS
+                </div>
+                </a>
+            </div>
+
+            <div class="polaroid" style="width: 124px">
+                <a href="{{ route('productoVentas.create') }}">
+                <img src="{{ asset('images/factura.png') }}" alt="ventas" class="ancho">
+                <p class="img-text"></p>
+                <div class="texto" >
+                    FACTURA
+                </div>
+                </a>
+            </div>
+
         </div>
     </div>
-</div>
+
 @endsection

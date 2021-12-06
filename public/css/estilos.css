@@ -100,7 +100,7 @@ margin-right: -25px;
 
 .welcome{
     background: #fd9259;
-    background: -webkit-linear-gradient(to right, #fd9259, #fffbbf);
+    background: -webkit-linear-gradient(to right, #fd9259, #c7c7c5);
     background: linear-gradient(to right, #fd9259, #fffbbf);
 
 }
@@ -112,4 +112,9 @@ margin-right: -25px;
 
 .logoPrincipal{
     margin-left: 65px;
+}
+
+.logo2{
+    width:950px;
+    padding-left:900px;
 }
