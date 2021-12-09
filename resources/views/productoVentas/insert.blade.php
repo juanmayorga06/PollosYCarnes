@@ -18,8 +18,8 @@
         @csrf
         @method('post')
         <div class="mb-3">
-            <label for="codigo" class="form-label">Codigo</label>
-            <input type="number" class="form-control" name="codigo" id="codigo" placeholder="000" value="{{ old('codigo') }}">
+            <label for="fecha" class="form-label">Fecha</label>
+            <input type="datetime" class="form-control" name="fecha" id="fecha">
         </div>
         <div class="mb-3">
             <label for="cantidad" class="form-label">Cantidad</label>
@@ -39,7 +39,7 @@
             </select>
         </div>
         <div class="mb-3">
-            <label for="tipo">Tipo</label>
+            <label for="tipo">Marca</label>
             <select name="tipo" id="tipo" class="form-select">
                 <option value="" selected>Seleccione...</option>
                 @foreach ($productos as $producto )

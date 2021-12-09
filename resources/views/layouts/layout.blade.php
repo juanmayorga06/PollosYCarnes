@@ -48,11 +48,11 @@
                     </ul>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropVentas" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                         Cliente
+                         Factura
                         </a>
                      <ul class="dropdown-menu" aria-labelledby="dropVentas">
-                        <li><a class="dropdown-item" href="{{ route('clientes.index') }}">Listar</a></li>
-                        <li><a class="dropdown-item" href="{{ route('clientes.create') }}">Crear nuevo</a></li>
+                        <li><a class="dropdown-item" href="{{ route('productoVentas.index') }}">Listar</a></li>
+                        <li><a class="dropdown-item" href="{{ route('productoVentas.create') }}">Crear nuevo</a></li>
                     </ul>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropProveedores" role="button" data-bs-toggle="dropdown" aria-expanded="false">

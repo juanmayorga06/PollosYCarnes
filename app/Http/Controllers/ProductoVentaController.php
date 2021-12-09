@@ -44,7 +44,7 @@ class ProductoVentaController extends Controller
         //
         //validar los datos BD
         $request->validate([
-            'codigo' => 'required',
+            'fecha'=>'required',
             'productoId' => 'required',
             'tipo'=>'required',  
             'total' => 'required', 
@@ -67,8 +67,7 @@ class ProductoVentaController extends Controller
     {
         //
         $productoVenta = ProductoVenta::join('productos', 'productoVentas.productoId', '=', 'productos.id')
-                        ->select('productoVentas.*','productos.nombre as nombreProducto',
-                        'productos.tipo as tipoProducto')
+                        ->select('productoVentas.*','productos.nombre')
                         ->where('productoVentas.id','=',$id)
                         ->first();
         //echo $desarrollador;
@@ -90,7 +89,7 @@ class ProductoVentaController extends Controller
         ///consulta
         $productoVenta =ProductoVenta::FindOrFail($id);
         //Enviar al edit
-        return view('productoVentas.edit', compact('productoVentas'));
+        return view('productoVentas.edit', compact('productoVenta'));
     }
 
     /**

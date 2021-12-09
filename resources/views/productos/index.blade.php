@@ -20,7 +20,7 @@
                 <th>Codigo</th>
                 <th>Nombre</th>
                 <th>Descripcion</th>
-                <th>Tipo</th>
+                <th>Marca</th>
                 <th>Precio</th>
                 <th>Cantidad</th>
                 <th>Acciones</th>

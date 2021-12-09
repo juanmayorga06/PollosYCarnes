@@ -23,15 +23,15 @@
                         <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                             <div id="root">
                                 @auth
-                                <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
+                                <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline btn btn-primary">Home</a>
                             @else
                                 <button type="submit" >
-                                <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Iniciar sesión</a>
+                                <a href="{{ route('login') }}" id="btnLogin" class="text-sm text-gray-700 dark:text-gray-500 underline btn btn-primary">Iniciar sesión</a>
                                 </button>
                                 <br>
                                 @if (Route::has('register'))
                                     <button>
-                                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Registrarse</a>
+                                    <a href="{{ route('register') }}" id="btnRegistrar" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline btn btn-info">Registrarse</a>
                                     </button>
                                 @endif
                             @endauth

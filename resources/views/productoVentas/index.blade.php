@@ -16,37 +16,37 @@
     <table class="table table-hover">
         <thead>
             <tr>
-                <th>Codigo</th>
+                <th>Fecha</th>
                 <th>Cantidad</th>
                 <th>productoId</th>
-                <th>Tipo</th>
-                <th>Total</th>
-                <th>SubTotal</th>               
+                <th>Marca</th>
+                <th>Total</th>           
             </tr>
         </thead>
         <tbody>
             @foreach($productoVentas as $productoVenta)
             <tr>
+                <td>{{ $productoVenta->fecha}}</td>
                 <td>{{ $productoVenta->codigo}}</td>
                 <td>{{ $productoVenta->cantidad}}</td>
                 <td>{{ $productoVenta->productoId}}</td>
                 <td>{{ $productoVenta->tipo}}</td>
-                <td>{{ $productoVenta->total}}</td>
-                 @php
-                    $subTotal = $productoVenta->total
+                @php
+                $subTotal = $productoVenta->total
 
-                @endphp
-                
-                <td>
-                    @foreach ($productoVentas as $valor )
-                        @php
-                          $subTotal = $subTotal * $valor->cantidad   
-                        @endphp
-                                              
-                    @endforeach 
-                    {{$subTotal }}
-                        
-                </td>
+            @endphp
+            
+            <td>
+                @foreach ($productoVentas as $valor )
+                    @php
+                      $total = $subTotal * $valor->cantidad   
+                    @endphp
+                                          
+                @endforeach 
+                {{$total }}
+                    
+            </td>
+
                 <td>
                     <a href="{{ route('productoVentas.show', $productoVenta->id) }}" class="btn btn-info">Detalles</a>
                     <form action="{{ route('productoVentas.destroy', $productoVenta->id) }}" method="post" class="d-inline-flex">
