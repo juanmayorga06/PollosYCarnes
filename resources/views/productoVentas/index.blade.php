@@ -12,7 +12,7 @@
 
     </div>
 @endif
-    <a href="{{ route('productoVentas.create') }}" class="btn btn-primary my-3 float-end">Crear Producto</a>
+    <a href="{{ route('productoVentas.create') }}" class="btn btn-primary my-3 float-end">Crear Producto Venta</a>
     <table class="table table-hover">
         <thead>
             <tr>
@@ -20,7 +20,8 @@
                 <th>Cantidad</th>
                 <th>productoId</th>
                 <th>Tipo</th>
-                <th>Total</th>               
+                <th>Total</th>
+                <th>SubTotal</th>               
             </tr>
         </thead>
         <tbody>
@@ -31,13 +32,28 @@
                 <td>{{ $productoVenta->productoId}}</td>
                 <td>{{ $productoVenta->tipo}}</td>
                 <td>{{ $productoVenta->total}}</td>
+                 @php
+                    $subTotal = $productoVenta->total
+
+                @endphp
+                
+                <td>
+                    @foreach ($productoVentas as $valor )
+                        @php
+                          $subTotal = $subTotal * $valor->cantidad   
+                        @endphp
+                                              
+                    @endforeach 
+                    {{$subTotal }}
+                        
+                </td>
                 <td>
                     <a href="{{ route('productoVentas.show', $productoVenta->id) }}" class="btn btn-info">Detalles</a>
-                    <form action="" method="post" class="d-inline-flex">
+                    <form action="{{ route('productoVentas.destroy', $productoVenta->id) }}" method="post" class="d-inline-flex">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger"
-                            onclick="return confirm('¿Confirma la eliminación del producto {{ $productoVenta->nombre}}?')">
+                            onclick="return confirm('¿Confirma la eliminación del producto {{ $productoVenta->codigo}}?')">
                             Eliminar
                         </button>
                     </form>

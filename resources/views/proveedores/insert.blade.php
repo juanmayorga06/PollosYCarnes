@@ -19,7 +19,7 @@
     @method('post')
     <div class="mb-3">
         <label for="nit" class="form-label">Nit del proveedor</label>
-        <input type="text" class="form-control" name="nit" id="nit" placeholder="Nit del proveedor" value="{{ old('nit') }}">
+        <input type="text" class="form-control" name="nit" id="nit" placeholder="Nit del proveedor" maxlength="10" value="{{ old('nit') }}">
     </div>
     <div class="mb-3">
         <label for="nombre" class="form-label">Nombre del proveedor</label>

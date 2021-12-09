@@ -20,6 +20,10 @@
         <input type="text" class="form-control" name="descripcion" id="descripcion" value="{{ $producto->descripcion }}">
     </div>
     <div class="mb-3">
+        <label for="tipo" class="form-label">Tipo</label>
+        <input type="text" class="form-control" name="tipo" id="tipo" value="{{ $producto->tipo }}">
+    </div>
+    <div class="mb-3">
         <label for="precio" class="form-label">Precio</label>
         <input type="number" class="form-control" name="precio" id="precio" value="{{ $producto->precio }}">
     </div>

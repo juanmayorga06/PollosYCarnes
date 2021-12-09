@@ -52,7 +52,7 @@
             </select>
         </div>
         <div class="mb-3">
-            <label for="total" class="form-label">Total</label>
+            <label for="total" class="form-label">Precio</label>
             <input type="number" class="form-control" name="total" id="total" placeholder="000" value="{{ old('cantidad') }}">
         </div>
         <button type="submit" class="btn btn-primary" style="margin-bottom: 20px">Facturar</button>   
