@@ -16,7 +16,7 @@ class ProductoVentaController extends Controller
     public function index()
     {
         //
-        $productoVentas = ProductoVenta::orderBy('codigo', 'asc')->get();
+        $productoVentas = ProductoVenta::orderBy('productoId', 'asc')->get();
         return view('productoVentas.index', compact('productoVentas'));
     }
 
@@ -46,8 +46,8 @@ class ProductoVentaController extends Controller
         $request->validate([
             'fecha'=>'required',
             'productoId' => 'required',
-            'tipo'=>'required',  
-            'total' => 'required', 
+            'tipo'=>'required',
+            'total' => 'required',
             'cantidad'=>'required',
 
         ]);
@@ -66,16 +66,16 @@ class ProductoVentaController extends Controller
     public function show($id)
     {
         //
-        $productoVenta = ProductoVenta::join('productos', 'productoVentas.productoId', '=', 'productos.id')
-                        ->select('productoVentas.*','productos.nombre')
-                        ->where('productoVentas.id','=',$id)
-                        ->first();
+        // $productoVenta = ProductoVenta::join('productos', 'productoVentas.productoId', '=', 'productos.id')
+        //                 ->select('productoVentas.*','productos.nombre')
+        //                 ->where('productoVentas.id','=',$id)
+        //                 ->first();
         //echo $desarrollador;
-
-        return view('productoVentas.view', compact('productoVenta'));
+        $productoVentas = ProductoVenta::FindOrFail($id);
+        return view('productoVentas.view', compact('productoVentas'));
           //consulta
-          
-   
+
+
     }
 
     /**

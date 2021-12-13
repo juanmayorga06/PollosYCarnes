@@ -4,7 +4,7 @@
 @section('titulo', 'Productos Ventas')
 <!-- //Aquí llama a yeald y pone todo el codigo ahí -->
 @section('content')
-    <h1 class="text-center pt-5 pb-3">Productos Ventas</h1>
+    <h1 class="text-center pt-5 pb-3">Ventas</h1>
     @if ($mensaje = Session::get('exito'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         <p>{{ $mensaje }}</p>
@@ -20,14 +20,13 @@
                 <th>Cantidad</th>
                 <th>productoId</th>
                 <th>Marca</th>
-                <th>Total</th>           
+                <th>Total</th>
             </tr>
         </thead>
         <tbody>
             @foreach($productoVentas as $productoVenta)
             <tr>
                 <td>{{ $productoVenta->fecha}}</td>
-                <td>{{ $productoVenta->codigo}}</td>
                 <td>{{ $productoVenta->cantidad}}</td>
                 <td>{{ $productoVenta->productoId}}</td>
                 <td>{{ $productoVenta->tipo}}</td>
@@ -35,16 +34,16 @@
                 $subTotal = $productoVenta->total
 
             @endphp
-            
+
             <td>
                 @foreach ($productoVentas as $valor )
                     @php
-                      $total = $subTotal * $valor->cantidad   
+                      $total = $subTotal * $valor->cantidad
                     @endphp
-                                          
-                @endforeach 
+
+                @endforeach
                 {{$total }}
-                    
+
             </td>
 
                 <td>
@@ -62,4 +61,11 @@
             @endforeach
         </tbody>
     </table>
+    @php
+    $sumaTotal = $total + $total
+
+    @endphp
+
+
+    <a href="" class="btn btn-info">Detalles</a>
 @endsection

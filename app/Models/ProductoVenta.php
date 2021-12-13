@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class ProductoVenta extends Model
 {
     protected $fillable=['fecha',
-                        'codigo',
                         'productoId',
                         'total',
                         'tipo',
