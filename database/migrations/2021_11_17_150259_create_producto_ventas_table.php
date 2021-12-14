@@ -15,11 +15,10 @@ class CreateProductoVentasTable extends Migration
     {
         Schema::create('producto_ventas', function (Blueprint $table) {
             $table->id();
-            $table->datetime('fecha');
+            $table->foreignId('idVenta')->constrained('ventas');
+            $table->foreignId('productoId')->constrained('productos');
             $table->integer('cantidad');
-            $table->string('productoId');
-            $table->string('tipo');
-            $table->double('total');
+            $table->double('subTotal')->nullable();
             $table->timestamps();
         });
     }

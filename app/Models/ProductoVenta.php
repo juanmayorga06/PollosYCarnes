@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProductoVenta extends Model
 {
-    protected $fillable=['fecha',
-                        'productoId',
-                        'total',
-                        'tipo',
-                        'cantidad',
+    protected $fillable=[
+        'idVenta',
+        'idProducto',
+        'cantidad',
+        'subTotal',
                     ];
 }

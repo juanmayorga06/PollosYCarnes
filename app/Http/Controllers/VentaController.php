@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Venta;
+use App\Models\Productos;
+use App\Models\ProductoVenta;
 use Illuminate\Http\Request;
 
 class VentaController extends Controller
@@ -12,10 +14,13 @@ class VentaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $ventas = Venta::orderBy('nombreDelProducto', 'asc')->get();
 
+
+    public function index(Request $request)
+    {
+        //listar los desarrolladores ordenados por nombre ascendentemente
+        $ventas = Venta::orderBy('id', 'asc')->get();
+        //Enviar a la vista
         return view('ventas.index', compact('ventas'));
     }
 
@@ -26,8 +31,9 @@ class VentaController extends Controller
      */
     public function create()
     {
-        //
-        return view('ventas.insert');
+        $ventas = Venta::orderBy('id','asc');
+        //Enviar a la vista
+        return view('ventas.insert', compact('ventas'));
     }
 
     /**
@@ -40,71 +46,87 @@ class VentaController extends Controller
     {
         //
         $request->validate([
-            'fecha' => 'required',
-            'nombreDelProducto' => 'required',
-            'tipo' => 'required',
-            'precio' => 'required',
-            'cantidad' => 'required',
-            'total' => 'required',
-            'totalIva' => 'required',
+            'fecha'=> 'required',
+            'cedula'=> 'required',
+            'nombreCliente'=> 'required'
         ]);
-
-        //Almacenar el proyecto en la DB
         Venta::create($request->all());
 
-        //Redirigir el index
-        return redirect()->route('ventas.index')->with('exito', 'Se ha guardado exitosamente.');
+        
+
+        return redirect()->route('ventas.index')->with('exito','Se ha agregado la Venta exitosamente');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Venta  $venta
+     * @param  \App\Models\Venta  $Venta
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        
-          //consulta
-          $venta = Venta::FindOrFail($id); //encuentra o lance un error
-          //Enviar a la vista
-          return view('ventas.view', compact('venta'));
+        $ventas= Venta::FindOrFail($id);
+        // $facturas = Factura::FindOrFail($id);
+        $productos= Productos::orderBy('nombre', 'asc')->get();
+
+        // $facturas = Factura::where('id', '=', $id)->get();
+        $productoVentas = ProductoVenta::join('productos', 'producto_ventas.productoId', '=', 'productos.id')
+            ->select('producto_ventas.*', 'productos.*')
+            ->get();
+
+        // $facturas = Factura::select('facturas.*')
+        //             ->where('ventas.id', '=', $id)->get();
+
+        return view('ventas.view', compact('ventas','productos','productoVentas'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Venta  $venta
+     * @param  \App\Models\Venta $desarrollador
      * @return \Illuminate\Http\Response
      */
-    public function edit( $id)
+    public function edit($id)
     {
-        //
-        $venta=Venta::FindOrFail($id);
 
-        return view('ventas.edit',compact('venta'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Venta  $venta
+     * @param  \App\Models\Venta  $desarrollador
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Venta $venta)
+    public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'fecha'=> 'required',
+            'cedula'=> 'required',
+            'nombreCedula'=> 'required'
+
+        ]);
+
+        $ventas = Venta::findOrFail($id);
+        $ventas->update($request->all());
+        return redirect()->route('ventas.index')->with('exito','Se ha modificado los datos de la venta exitosamente.');
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Venta  $venta
+     * @param  \App\Models\Venta  $desarrollador
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Venta $venta)
+    public function destroy($id)
     {
-        //
+        $ventas = Venta::findOrFail($id);
+        $ventas->delete();
+
+        return redirect()->route('ventas.index')->with('exito','Se ha eliminado la venta correctamente.');
     }
+
+
 }

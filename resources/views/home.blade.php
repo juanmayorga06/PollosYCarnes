@@ -9,7 +9,7 @@
         </div>
         <div class="row" style="padding-top: 20px">
             <div class="polaroid" style="width: 124px">
-                <a href="{{ route('productoVentas.index') }}">
+                <a href="{{ route('ventas.index') }}">
                 <img src="{{ asset('images/ventas.png') }}" alt="ventas" class="ancho">
                 <p class="img-text"></p>
                 <div class="texto">

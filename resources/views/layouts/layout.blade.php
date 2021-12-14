@@ -36,7 +36,7 @@
                          Ventas
                         </a>
                      <ul class="dropdown-menu" aria-labelledby="dropVentas">
-                        <li><a class="dropdown-item" href="{{ route('productoVentas.index') }}">Listar</a></li>
+                        <li><a class="dropdown-item" href="{{ route('ventas.index') }}">Listar</a></li>
                     </ul>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropVentas" role="button" data-bs-toggle="dropdown" aria-expanded="false">

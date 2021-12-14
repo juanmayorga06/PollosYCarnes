@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\ProductoVenta;
 use App\Models\Productos;
+use App\Models\Venta;
 use Illuminate\Http\Request;
+
 
 class ProductoVentaController extends Controller
 {
@@ -13,11 +15,15 @@ class ProductoVentaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+
+    public function index(Request $request)
     {
-        //
-        $productoVentas = ProductoVenta::orderBy('productoId', 'asc')->get();
-        return view('productoVentas.index', compact('productoVentas'));
+        $productoVentas = ProductoVenta::join('productos', 'producto_ventas.productoId', '=', 'productos.id')
+            ->select('producto_ventas.*', 'productos.*')
+            ->get();
+        //Enviar a la vista
+        return view('productoVentas.index',compact('productoVentas'));
     }
 
     /**
@@ -27,10 +33,8 @@ class ProductoVentaController extends Controller
      */
     public function create()
     {
-        //
-        $productos = Productos::orderBy('nombre','asc')->get();
-        return view('productoVentas.insert',compact('productos'));
-
+        $productoVentas = ProductoVenta::orderBy('id','asc')->get();
+        return view('ventas.index', compact('productoVentas'));
     }
 
     /**
@@ -39,56 +43,60 @@ class ProductoVentaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    // public function store(Request $request)
+    // {
+    //     $request->validate([
+    //         'idProducto'=> 'required',
+    //         'cantidad'=> 'required',
+    //     ]);
+
+    //     Factura::create($request->all());
+    //     //Retornar la vista
+    //     return redirect()->route('factura.index')->with('exito','Se ha guardado la Factura exitosamente.');
+    // }
     public function store(Request $request)
     {
-        //
-        //validar los datos BD
         $request->validate([
-            'fecha'=>'required',
-            'productoId' => 'required',
-            'tipo'=>'required',
-            'total' => 'required',
-            'cantidad'=>'required',
-
+            'idVenta' =>'required',
+            'productoId' =>'required',
+            'cantidad'=>'required'
         ]);
 
-        ProductoVenta::create($request->all());
+        $productoVentas = ProductoVenta::create($request->all());
 
-        return redirect()->route('productoVentas.index')->with('exito', 'Se ha agreado con exito');
+
+
+
+        // dd($request);
+
+        return redirect()->route('ventas.show',$request->idVenta);
+
+        // header("refresh:1;url=" + ventas.view/'.$request->idVenta +"));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\ProductoVenta  $productoVenta
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
-        // $productoVenta = ProductoVenta::join('productos', 'productoVentas.productoId', '=', 'productos.id')
-        //                 ->select('productoVentas.*','productos.nombre')
-        //                 ->where('productoVentas.id','=',$id)
-        //                 ->first();
-        //echo $desarrollador;
-        $productoVentas = ProductoVenta::FindOrFail($id);
-        return view('productoVentas.view', compact('productoVentas'));
-          //consulta
-
-
+        $productoVenta = ProductoVenta::FindOrFail($id);
+        //Enviar a la vista
+        return view('productoVentas.view', compact('productoVenta'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\ProductoVenta  $productoVenta
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit( $id)
+    public function edit($id)
     {
-        ///consulta
-        $productoVenta =ProductoVenta::FindOrFail($id);
-        //Enviar al edit
+        $productoVenta = ProductoVenta::FindOrFail($id);
+        //Enviar a la vista
         return view('productoVentas.edit', compact('productoVenta'));
     }
 
@@ -96,40 +104,33 @@ class ProductoVentaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\ProductoVenta  $productoVenta
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        //validar los datos
         $request->validate([
-            'codigo' => 'required',
-            'productoId' => 'required',
-            'total' => 'required',
-            'tipo' => 'required',
+            'productoId'=> 'required',
+            'cantidad'=> 'required',
         ]);
 
-        //Buscar el proyecto
         $productoVenta = ProductoVenta::FindOrFail($id);
 
-        //Actualizacion del proyecto
         $productoVenta->update($request->all());
-
-        //Redirigir el index
-        return redirect()->route('productoVentas.index')->with('exito', 'Se ha guardado exitosamente.');
+        //Retornar la vista
+        return redirect()->route('productoVentas.index')->with('exito','Se ha modificado exitosamente.');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\ProductoVenta  $productoVenta
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy( $id)
+    public function destroy($id)
     {
-         //Eliminar un producto
-         $productoVenta = ProductoVenta::findOrFail($id);
-         $productoVenta->delete();
-         return redirect()->route('productoVentas.index')->with('exito', 'Se ha eliminado exitosamente');
+        $productoVenta = ProductoVenta::FindOrFail($id);
+        $productoVenta->delete();
+        return redirect()->route('productoVentas.index')->with('exito','Se ha eliminado correctamente.');
     }
 }

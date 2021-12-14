@@ -14,7 +14,7 @@
         </ul>
     </div>
 @endif
-<form action="{{ route('productoVentas.store') }}"  style="margin-bottom: 20px">
+<form style="margin-bottom: 20px">
         @csrf
         @method('post')
         <div class="mb-3">
@@ -27,7 +27,7 @@
         </div>
         <div class="mb-3">
             <label for="productoId">Producto</label>
-            <select name="productoId" id="productoId" class="form-select">
+            <select name="productoId" id="productoId" class="form-select" onblur="buscar_datos();">
                 <option value="" selected>Seleccione...</option>
                 @foreach ($productos as $producto )
                 <option value="{{ $producto->nombre }}"
