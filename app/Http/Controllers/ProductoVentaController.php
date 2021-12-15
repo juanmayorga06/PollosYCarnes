@@ -23,7 +23,7 @@ class ProductoVentaController extends Controller
             ->select('producto_ventas.*', 'productos.*')
             ->get();
         //Enviar a la vista
-        return view('productoVentas.index',compact('productoVentas'));
+        return view('productoVentas.index', compact('productoVentas'));
     }
 
     /**
@@ -33,7 +33,7 @@ class ProductoVentaController extends Controller
      */
     public function create()
     {
-        $productoVentas = ProductoVenta::orderBy('id','asc')->get();
+        $productoVentas = ProductoVenta::orderBy('id', 'asc')->get();
         return view('ventas.index', compact('productoVentas'));
     }
 
@@ -56,22 +56,18 @@ class ProductoVentaController extends Controller
     // }
     public function store(Request $request)
     {
+       
         $request->validate([
-            'idVenta' =>'required',
-            'productoId' =>'required',
-            'cantidad'=>'required'
+            'idVenta' => 'required',
+            'productoId' => 'required',
+            'cantidad' => 'required'
         ]);
+        
 
-        $productoVentas = ProductoVenta::create($request->all());
+        ProductoVenta::create($request->all());
 
 
-
-
-        // dd($request);
-
-        return redirect()->route('ventas.show',$request->idVenta);
-
-        // header("refresh:1;url=" + ventas.view/'.$request->idVenta +"));
+        return redirect()->route('ventas.show', $request->idVenta);
     }
 
     /**
@@ -82,9 +78,10 @@ class ProductoVentaController extends Controller
      */
     public function show($id)
     {
-        $productoVenta = ProductoVenta::FindOrFail($id);
+        $productoVentas = ProductoVenta::FindOrFail($id);
+        dd($productoVentas);
         //Enviar a la vista
-        return view('productoVentas.view', compact('productoVenta'));
+        return view('productoVentas.view', compact('productoVentas'));
     }
 
     /**
@@ -110,15 +107,15 @@ class ProductoVentaController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'productoId'=> 'required',
-            'cantidad'=> 'required',
+            'productoId' => 'required',
+            'cantidad' => 'required',
         ]);
 
         $productoVenta = ProductoVenta::FindOrFail($id);
 
         $productoVenta->update($request->all());
         //Retornar la vista
-        return redirect()->route('productoVentas.index')->with('exito','Se ha modificado exitosamente.');
+        return redirect()->route('productoVentas.index')->with('exito', 'Se ha modificado exitosamente.');
     }
 
     /**
@@ -131,6 +128,6 @@ class ProductoVentaController extends Controller
     {
         $productoVenta = ProductoVenta::FindOrFail($id);
         $productoVenta->delete();
-        return redirect()->route('productoVentas.index')->with('exito','Se ha eliminado correctamente.');
+        return redirect()->route('productoVentas.index')->with('exito', 'Se ha eliminado correctamente.');
     }
 }

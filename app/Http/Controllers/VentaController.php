@@ -31,7 +31,7 @@ class VentaController extends Controller
      */
     public function create()
     {
-        $ventas = Venta::orderBy('id','asc');
+        $ventas = Venta::orderBy('id', 'asc');
         //Enviar a la vista
         return view('ventas.insert', compact('ventas'));
     }
@@ -46,15 +46,12 @@ class VentaController extends Controller
     {
         //
         $request->validate([
-            'fecha'=> 'required',
-            'cedula'=> 'required',
-            'nombreCliente'=> 'required'
+            'fecha' => 'required',
+            'cedula' => 'required',
+            'nombreCliente' => 'required'
         ]);
-        Venta::create($request->all());
-
-        
-
-        return redirect()->route('ventas.index')->with('exito','Se ha agregado la Venta exitosamente');
+        $venta = Venta::create($request->all());
+        return redirect()->route('ventas.index')->with('exito', 'Se ha agregado la Venta exitosamente');
     }
 
     /**
@@ -65,19 +62,19 @@ class VentaController extends Controller
      */
     public function show($id)
     {
-        $ventas= Venta::FindOrFail($id);
+        $ventas = Venta::FindOrFail($id);
         // $facturas = Factura::FindOrFail($id);
-        $productos= Productos::orderBy('nombre', 'asc')->get();
+        $productos = Productos::orderBy('nombre', 'asc')->get();
 
         // $facturas = Factura::where('id', '=', $id)->get();
         $productoVentas = ProductoVenta::join('productos', 'producto_ventas.productoId', '=', 'productos.id')
-            ->select('producto_ventas.*', 'productos.*')
+            ->select('producto_ventas.*', 'productos.precio', 'productos.nombre')
             ->get();
 
         // $facturas = Factura::select('facturas.*')
         //             ->where('ventas.id', '=', $id)->get();
 
-        return view('ventas.view', compact('ventas','productos','productoVentas'));
+        return view('ventas.view', compact('ventas', 'productos', 'productoVentas'));
     }
 
     /**
@@ -88,7 +85,6 @@ class VentaController extends Controller
      */
     public function edit($id)
     {
-
     }
 
     /**
@@ -102,16 +98,15 @@ class VentaController extends Controller
     {
         //
         $request->validate([
-            'fecha'=> 'required',
-            'cedula'=> 'required',
-            'nombreCedula'=> 'required'
+            'fecha' => 'required',
+            'cedula' => 'required',
+            'nombreCedula' => 'required'
 
         ]);
 
         $ventas = Venta::findOrFail($id);
         $ventas->update($request->all());
-        return redirect()->route('ventas.index')->with('exito','Se ha modificado los datos de la venta exitosamente.');
-
+        return redirect()->route('ventas.index')->with('exito', 'Se ha modificado los datos de la venta exitosamente.');
     }
 
     /**
@@ -125,8 +120,6 @@ class VentaController extends Controller
         $ventas = Venta::findOrFail($id);
         $ventas->delete();
 
-        return redirect()->route('ventas.index')->with('exito','Se ha eliminado la venta correctamente.');
+        return redirect()->route('ventas.index')->with('exito', 'Se ha eliminado la venta correctamente.');
     }
-
-
 }

@@ -7,7 +7,7 @@
 
     </div>
     <h1 class="text-center pt-5 pb-3">Detalles de la Venta</h1>
-    <a href="{{ route('ventas.index') }}" class="btn btn-primary mt-3 mb-3">Volver</a>
+    
 
     <table class="table">
         <thead>
@@ -43,13 +43,12 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-
                     <form action="{{ route('productoVentas.store') }}" method="post">
                         @method('post')
                         @csrf
                         <div class="mb-3">
                             <div class="col text-start">
-                                <input class="form-control col-md-4 inputgray" type="hidden" name="idVenta" id="idVenta"
+                                <input class="form-control col-md-4 inputgray" type="text" name="idVenta" id="idVenta"
                                     placeholder="" value="{{ $ventas->id }}">
                             </div>
                             <div class="form-group">
@@ -57,7 +56,7 @@
                                 <div class="col-md-4 selectContainer">
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                                        <select name="idProducto" class="form-control selectpicker">
+                                        <select name="productoId" class="form-control selectpicker">
                                             <option value="">Seleccione...</option>
                                             @foreach ($productos as $producto)
                                                 <option value="{{ $producto->id }}" @if (old('id') == $producto->id)
@@ -88,7 +87,6 @@
     <table class=" table">
         <thead>
             <tr>
-                <th scope="col">id Producto</th>
                 <th scope="col">Nombre Producto</th>
                 <th scope="col">Valor Unidad</th>
                 <th scope="col">Cantidad</th>
@@ -98,7 +96,6 @@
         <tbody>
             @foreach ($productoVentas as $productoVenta)
                 <tr>
-                    <th>{{ $productoVenta->id }}</th>
                     <td>{{ $productoVenta->nombre }}</td>
                     <td>{{ $productoVenta->precio}}</td>
                     <td>{{ $productoVenta->cantidad }}</td>
@@ -125,5 +122,6 @@
 
     <h4>$ {{$total}}</h4>
 </div>
+<a href="{{ route('ventas.index') }}" class="btn btn-primary mt-3 mb-3 ">Volver</a>
 
 @endsection

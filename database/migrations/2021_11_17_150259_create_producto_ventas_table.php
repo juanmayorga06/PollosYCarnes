@@ -18,7 +18,6 @@ class CreateProductoVentasTable extends Migration
             $table->foreignId('idVenta')->constrained('ventas');
             $table->foreignId('productoId')->constrained('productos');
             $table->integer('cantidad');
-            $table->double('subTotal')->nullable();
             $table->timestamps();
         });
     }

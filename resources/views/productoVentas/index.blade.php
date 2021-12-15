@@ -12,7 +12,7 @@
         </div>
     @endif
 
-    <a href="{{ route('productoVentas.create') }}" class="btn btn-outline-dark mb-3 float-center">Facturar</a>
+    {{-- <a href="{{ route('productoVentas.create') }}" class="btn btn-outline-dark mb-3 float-center">Facturar</a> --}}
     <table class="table table-hover">
         <thead>
             <tr>
